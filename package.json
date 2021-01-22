@@ -1,0 +1,41 @@
+{
+  "name": "@tarojs/plugin-indie",
+  "version": "0.0.1",
+  "description": "Taro 单独分包运行插件",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run prod",
+    "dev": "tsc -w",
+    "prod": "tsc",
+    "clean": "rimraf dist",
+    "test": "jest",
+    "test:dev": "jest --watch"
+  },
+  "files": [
+    "src",
+    "dist",
+    "index.js",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NervJS/taro-plugin-mock.git"
+  },
+  "keywords": [
+    "Taro"
+  ],
+  "author": "luckyadam",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/NervJS/tarojs-plugin-mock/issues"
+  },
+  "homepage": "https://github.com/NervJS/tarojs-plugin-mock#readme",
+  "devDependencies": {
+    "@types/node": "^13.9.8",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@tarojs/helper": "^3.0.24",
+    "webpack-sources": "^2.2.0"
+  }
+}
