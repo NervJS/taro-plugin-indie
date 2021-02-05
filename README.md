@@ -34,18 +34,18 @@ const config = {
 
 ### 参数
 
-Mock 插件可以接受如下参数：
+@tarojs/plugin-indie 插件可以接受如下参数：
 
 | 参数项 | 类型 | 默认值 | 是否可选 | 用途 |
 | :-----| :---- | :---- | :---- | :---- |
-| commonChunk | array | `['runtime', 'common', 'vendors', 'taro']` | 是 | 设置加入到自定义组件头部的依赖文件 |
+| commonChunks | array | `['runtime', 'common', 'vendors', 'taro']` | 是 | 设置加入到自定义组件头部的依赖文件 |
 
 ```js
 const config = {
   ...
   plugins: [
     ['@tarojs/plugin-indie', {
-      commonChunk: [
+      commonChunks: [
         'runtime',
         'common',
         'vendors',
