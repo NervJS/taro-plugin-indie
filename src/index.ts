@@ -3,17 +3,8 @@ import { promoteRelativePath, META_TYPE,  } from '@tarojs/helper'
 
 const path = require('path')
 
-const DEFAULT_COMMON_CHUNKS = [
-  'runtime',
-  'common',
-  'vendors',
-  'taro'
-]
 
-export default (ctx, { commonChunks }) => {
-  commonChunks = Array.isArray(commonChunks) ? commonChunks : DEFAULT_COMMON_CHUNKS
-  commonChunks = commonChunks.map(name => ({ name }))
-
+export default ctx => {
   ctx.onCompilerMake(({ compilation }) => {
     if (!ctx.runOpts.blended) return
 
@@ -25,12 +16,9 @@ export default (ctx, { commonChunks }) => {
       const id = getIdOrName(chunk)
       const entryChunk = [{ name: 'app' }]
 
-      if (miniType === META_TYPE.PAGE) {
+      // 所有模块都依赖app.js，确保@tarojs\plugin-platform-xxx\dist\runtime.js先于@tarojs/runtime执行，避免Taro API未被初始化
+      if (miniType === META_TYPE.PAGE || miniType === META_TYPE.STATIC) {
         return addRequireToSource(id, modules, entryChunk)
-      }
-
-      if (miniType === META_TYPE.STATIC) {
-        return addRequireToSource(id, modules, commonChunks)
       }
     })
   })
