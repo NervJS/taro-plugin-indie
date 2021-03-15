@@ -6,7 +6,7 @@ const path = require('path')
 
 export default ctx => {
   ctx.onCompilerMake(({ compilation }) => {
-    if (!ctx.runOpts.blended) return
+    if (!ctx.runOpts.options.blended) return
 
     compilation.chunkTemplate.hooks.renderWithEntry.tap('taro-plugin-single', (modules, chunk) => {
       if (!chunk.entryModule) return
