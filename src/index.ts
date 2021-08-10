@@ -1,10 +1,32 @@
 import { ConcatSource } from 'webpack-sources'
-import { promoteRelativePath, META_TYPE,  } from '@tarojs/helper'
+import { promoteRelativePath, META_TYPE } from '@tarojs/helper'
 
 const path = require('path')
-
+const wxssReg = /.*\.wxss$/
 
 export default ctx => {
+  ctx.modifyBuildAssets(({ assets }) => {
+    if (!ctx.runOpts.options.blended) return
+
+    Object.keys(assets).forEach(filename => {
+      const isWxss = wxssReg.test(filename)
+
+      if (isWxss && filename !== 'app.wxss') {
+        const source = new ConcatSource()
+        const originSource = assets[filename].source()
+        const relativePath = JSON.stringify(promoteRelativePath(path.relative(filename, 'app.wxss')))
+
+        source.add(`@import ${relativePath};`)
+        source.add('\n')
+        source.add(originSource)
+        assets[filename] = {
+          size: () => source.source().length,
+          source: () => source.source()
+        }
+      }
+    })
+  })
+
   ctx.onCompilerMake(({ compilation }) => {
     if (!ctx.runOpts.options.blended) return
 
