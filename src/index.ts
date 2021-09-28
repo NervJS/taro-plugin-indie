@@ -11,7 +11,7 @@ export default ctx => {
     Object.keys(assets).forEach(filename => {
       const isWxss = wxssReg.test(filename)
 
-      if (isWxss && filename !== 'app.wxss') {
+      if (isWxss && filename !== 'app.wxss' && filename !== 'common.wxss') {
         const source = new ConcatSource()
         const originSource = assets[filename].source()
         const relativePath = JSON.stringify(promoteRelativePath(path.relative(filename, 'app.wxss')))
