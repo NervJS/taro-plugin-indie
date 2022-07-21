@@ -1,6 +1,6 @@
 {
   "name": "@tarojs/plugin-indie",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Taro 单独分包运行插件",
   "main": "index.js",
   "scripts": {
