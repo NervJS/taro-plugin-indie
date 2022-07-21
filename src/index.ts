@@ -19,10 +19,7 @@ export default ctx => {
         source.add(`@import ${relativePath};`)
         source.add('\n')
         source.add(originSource)
-        assets[filename] = {
-          size: () => source.source().length,
-          source: () => source.source()
-        }
+        assets[filename] = source
       }
     })
   })
