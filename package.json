@@ -35,7 +35,7 @@
     "typescript": "^3.8.3"
   },
   "peerDependencies": {
-    "@tarojs/helper": "3.1.4",
-    "webpack-sources": "^3.2.3"
+    "@tarojs/helper": "^3.1.4",
+    "webpack-sources": "*"
   }
 }
