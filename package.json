@@ -19,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NervJS/taro-plugin-mock.git"
+    "url": "git+https://github.com/NervJS/taro-plugin-indie.git"
   },
   "keywords": [
     "Taro"
@@ -27,9 +27,9 @@
   "author": "luckyadam",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/NervJS/tarojs-plugin-mock/issues"
+    "url": "https://github.com/NervJS/taro-plugin-indie/issues"
   },
-  "homepage": "https://github.com/NervJS/tarojs-plugin-mock#readme",
+  "homepage": "https://github.com/NervJS/taro-plugin-indie#readme",
   "devDependencies": {
     "@types/node": "^13.9.8",
     "typescript": "^3.8.3"
